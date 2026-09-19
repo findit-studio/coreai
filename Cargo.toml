@@ -1,48 +1,25 @@
 [package]
-name = "template-rs"
+name = "coreai"
 version = "0.0.0"
-edition = "2021"
-repository = "https://github.com/al8n/template-rs"
-homepage = "https://github.com/al8n/template-rs"
-documentation = "https://docs.rs/template-rs"
-description = "A template for creating Rust open-source repo on GitHub"
+edition = "2024"
+rust-version = "1.95"
+description = "Apple Core AI (.aimodel) runtime binding and model kits for Rust — coremlit's counterpart for macOS 27+"
+repository = "https://github.com/findit-studio/coreai"
+homepage = "https://github.com/findit-studio/coreai"
+documentation = "https://docs.rs/coreai"
+readme = "README.md"
 license = "MIT OR Apache-2.0"
-rust-version = "1.73"
-
-[[bench]]
-path = "benches/foo.rs"
-name = "foo"
-harness = false
-
-[features]
-default = ["std"]
-alloc = []
-std = []
+keywords = ["coreai", "apple", "macos", "machine-learning", "coremlit"]
+categories = ["api-bindings", "os::macos-apis", "artificial-intelligence"]
 
 [dependencies]
 
-[dev-dependencies]
-criterion = "0.8"
-tempfile = "3"
-
-[profile.bench]
-opt-level = 3
-debug = false
-codegen-units = 1
-lto = 'thin'
-incremental = false
-debug-assertions = false
-overflow-checks = false
-rpath = false
-
 [package.metadata.docs.rs]
 all-features = true
+default-target = "aarch64-apple-darwin"
+targets = ["aarch64-apple-darwin"]
 rustdoc-args = ["--cfg", "docsrs"]
 
 [lints.rust]
 rust_2018_idioms = "warn"
 single_use_lifetimes = "warn"
-unexpected_cfgs = { level = "warn", check-cfg = [
-  'cfg(all_tests)',
-  'cfg(tarpaulin)',
-] }
